@@ -1,0 +1,92 @@
+---
+title: 'Homework #3'
+author: "Rimo Akther"
+date: "2/22/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question 1
+Answer to the question 1
+
+```{r cars}
+log(12.43)
+log10(12.43) # or
+log(12.43, base = 10)
+sqrt(12.43)
+exp(12.43)
+```
+
+## Question 2
+Answer to the question 2
+
+```{r pressure, echo=FALSE}
+area_circle = pi*25^2
+```
+
+## Question 3
+Answer to the question 3
+
+```{r cars}
+weight = c(120, 117, 139, 129, 94, 86, 106, 107, 126, 126)
+height = c(47, 40, 41, 35, 60, 42, 50, 49, 38, 42)
+bmi = weight/height^2
+```
+
+## Question 4
+Answer to the question 4
+
+```{r cars}
+names = c("John", "Megan", "Ryan", "Isabela", "Matt", "Lindsay", "Tony", "Mary Jane", "Chase", "Delaney")
+alldata <- data.frame(names, height, weight, bmi)
+```
+
+## Question 5
+Answer to the question 5
+
+```{r cars}
+alldata <- alldata[order(alldata$height, decreasing=TRUE),]
+
+alldata$height_rank <- seq(1:10)
+alldata$height_rank <- seq(1:length(height))
+alldata$height_rank <- seq(1:length(alldata$height))
+alldata$height_rank <- seq(1:nrow(alldata))
+alldata$height_rank <- seq(1:dim(alldata)[1])
+
+alldata <- alldata[order(alldata$weight, decreasing = TRUE),]
+alldata$weight_rank <- seq(1:nrow(alldata))
+alldata <- alldata[order(alldata$names),]
+alldata$name_rank <- seq(1:nrow(alldata))
+alldata <- alldata[order(alldata$bmi),]
+alldata$bmi_rank <- seq(1:nrow(alldata))
+```
+
+## Question 6
+Answer to the question 6
+
+```{r cars}
+height_mean <- mean(alldata$height)
+weight_mean <- mean(alldata$weight)
+height_sd <- sd(alldata$height)
+weight_sd <- sd(alldata$weight)
+
+height2 <- rnorm(10000, height_mean, height_sd)
+weight2 <- rnorm(10000, weight_mean, weight_sd)
+
+names2 <- paste0("name_", seq(1:10000))
+names2 <- paste("name_", seq(1:10000), sep="")
+names2 <- paste("name", seq(1:10000), sep="_")
+names2 < paste0("n", seq(1:10000), sep="ame_")
+names2 <- paste0("names_", c(1:10000))
+
+alldata2 <- data.frame(names2, height2, weight2)
+alldata2$bmi <- alldata2$weight/alldata2$height^2
+colnames(alldata2)[1:3] <- c("names", "height", "weight")
+
+colnames(alldata2) <- c("names", "height", "weight", "bmi")
+```
+
+
